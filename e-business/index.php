@@ -11,7 +11,16 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            echo phpversion();
+        if(isset($_GET["msg"])){
+            echo '<h1>'.$_GET["msg"].'</h1>';
+        }
+        echo phpversion();
+        
         ?>
+        <form action = "userController.php" method = "post">
+        <input type="hidden"  name="action" value="login">
+        Name: <input type = "text" name = "fname">
+        <input type = "submit" value="Submit">
+        </form>
     </body>
 </html>
